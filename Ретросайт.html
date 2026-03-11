@@ -1,0 +1,796 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+  <title>*** Русский Поиск *** — портал Рунета с 1995 года</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta name="generator" content="Notepad 2.0">
+  <script language="JavaScript1.2">
+  <!--
+    // 90s-style JavaScript для интерактивности
+    
+    // Счётчик посещений
+    var visitCount = 127893;
+    
+    // Функция для статус-бара
+    function statusMessage(msg) {
+      window.status = msg;
+      return true;
+    }
+    
+    // Поиск
+    function doSearch() {
+      var query = document.searchForm.query.value;
+      if (query == "" || query == "введите запрос...") {
+        alert("⚠️ Введите поисковый запрос!");
+        return false;
+      }
+      alert("🔍 Поиск по запросу: \"" + query + "\"\n\nНайдено страниц: " + Math.floor(Math.random() * 5000 + 100) + "\nВремя поиска: " + (Math.random() * 2 + 0.5).toFixed(2) + " сек.\n\n(Демо-режим 1998 года)");
+      return false;
+    }
+    
+    // Случайный сайт
+    var randomSites = [
+      "Музей советских телефонов",
+      "Библиотека Максима Мошкова",
+      "Анекдоты из FIDO",
+      "Коллекция MIDI-музыки",
+      "Драйверы для всего",
+      "Рецепты бабушки Агафьи",
+      "Чат.ru — знакомства",
+      "Новости.ру — лента дня",
+      "Игры.ру — Quake серверы",
+      "Погода в Москве и области"
+    ];
+    
+    function randomSite() {
+      var idx = Math.floor(Math.random() * randomSites.length);
+      alert("🎲 Случайный сайт:\n\n" + randomSites[idx] + "\n\nПереходим... (демо)");
+      return false;
+    }
+    
+    // Подача объявления
+    function submitAd() {
+      var adType = prompt("Тип объявления:", "ПРОДАМ");
+      if (adType) {
+        var adText = prompt("Текст объявления:", "");
+        if (adText) {
+          var price = prompt("Цена (в USD):", "договорная");
+          alert("✅ Объявление отправлено на модерацию!\n\nОжидайте публикации в течение 24 часов.\n\nВаш номер: " + Math.floor(Math.random() * 900 + 100));
+        }
+      }
+      return false;
+    }
+    
+    // Гостевая книга
+    function writeGuestbook() {
+      var name = prompt("Ваше имя:", "");
+      if (name) {
+        var email = prompt("Ваш E-mail:", "");
+        if (email) {
+          var message = prompt("Ваше сообщение:", "");
+          if (message) {
+            alert("✅ Спасибо, " + name + "!\n\nВаше сообщение добавлено в гостевую книгу.\n\nМодерация: 2-4 часа.");
+          }
+        }
+      }
+      return false;
+    }
+    
+    // Контакты
+    function contactWebmaster() {
+      alert("📧 Написать вебмастеру:\n\nwebmaster@ruspoisk.ru\n\n(Откроется ваш почтовый клиент)");
+      window.location = "mailto:webmaster@ruspoisk.ru";
+      return false;
+    }
+    
+    // Помощь
+    function showHelp() {
+      alert("❓ ПОМОЩЬ\n\n" +
+            "• Поиск: введите запрос и нажмите 'Поиск'\n" +
+            "• Каталог: выберите категорию\n" +
+            "• Барахолка: подайте объявление бесплатно\n" +
+            "• Почта: зарегистрируйте ящик за 2 минуты\n" +
+            "• Чат: IRC-галерея Рунета\n\n" +
+            "Вопросы? Пишите: webmaster@ruspoisk.ru");
+      return false;
+    }
+    
+    // Карта сайта
+    function showMap() {
+      alert("🗺️ КАРТА ПОРТАЛА\n\n" +
+            "📌 Главная\n" +
+            "📌 Поиск\n" +
+            "📌 Каталог (24 раздела)\n" +
+            "📌 Барахолка (347 объявлений)\n" +
+            "📌 Почта\n" +
+            "📌 Чат\n" +
+            "📌 Новости\n" +
+            "📌 Гостевая книга\n" +
+            "📌 Помощь\n" +
+            "📌 О портале");
+      return false;
+    }
+    
+    // Добавить сайт
+    function addSite() {
+      var url = prompt("URL вашего сайта:", "http://");
+      if (url) {
+        var name = prompt("Название сайта:", "");
+        if (name) {
+          var desc = prompt("Описание (до 200 символов):", "");
+          if (desc) {
+            alert("✅ Сайт отправлен на проверку!\n\n" + name + "\n" + url + "\n\nОжидайте добавления в каталог в течение 3-5 дней.");
+          }
+        }
+      }
+      return false;
+    }
+    
+    // Страницы барахолки
+    function gotoPage(page) {
+      alert("📄 Переход на страницу " + page + "\n\n(Демо-режим — показана страница 1)");
+      return false;
+    }
+    
+    // Написать в барахолку
+    function contactAd(seller) {
+      alert("📧 Сообщение для: " + seller + "\n\n(Откроется ваш почтовый клиент)");
+      return false;
+    }
+    
+    // ICQ
+    function openICQ(uin) {
+      alert("💬 ICQ UIN: " + uin + "\n\nДобавьте этот номер в ваш ICQ клиент\n(90s messenger!)");
+      return false;
+    }
+    
+    // Счётчик
+    function showCounter() {
+      visitCount += Math.floor(Math.random() * 3);
+      document.getElementById("visitCounter").innerHTML = "00" + visitCount;
+    }
+    
+    // При загрузке
+    window.onload = function() {
+      statusMessage("Добро пожаловать в Русский Поиск! Загрузка...");
+      setTimeout(function() {
+        statusMessage("Онлайн: 186 чел. | Объявлений: 347");
+      }, 2000);
+    };
+    
+    // При уходе
+    window.onunload = function() {
+      statusMessage("Спасибо за визит! Заходите ещё! :-)");
+    };
+  //-->
+  </script>
+</head>
+
+<body bgcolor="#C0C0C0" text="#000000" link="#0000EE" vlink="#551A8B" alink="#FF0000"
+      background="stars.gif" leftmargin="8" topmargin="8" 
+      onmouseover="statusMessage('Навигация по порталу...')" >
+
+<center>
+
+<!-- ========== ВЕРХНЯЯ ЛИНИЯ ========== -->
+<table width="95%" border="0" cellpadding="2" cellspacing="0">
+  <tr>
+    <td align="left">
+      <font face="Courier New" size="1" color="#000080">
+        [ <a href="#" onclick="window.scrollTo(0,0); return false;" onmouseover="statusMessage('Наверх страницы')">наверх</a> ]
+      </font>
+    </td>
+    <td align="center">
+      <font face="Verdana" size="1" color="#000080">
+        <b>📢 НОВОЕ:</b> <a href="#baraholka" onclick="document.getElementById('baraholka').scrollIntoView(); return false;" onmouseover="statusMessage('Перейти к Барахолке')">Добавлена Барахолка!</a> Объявлений: 347
+      </font>
+    </td>
+    <td align="right">
+      <font face="Courier New" size="1" color="#000080">
+        [ <a href="#" onclick="contactWebmaster(); return false;" onmouseover="statusMessage('Написать вебмастеру')">написать вебмастеру</a> ]
+      </font>
+    </td>
+  </tr>
+</table>
+
+<img src="rule_blue.gif" width="95%" height="3" alt="---" border="0"><br>
+
+<!-- ========== ШАПКА ========== -->
+<table width="95%" border="4" cellpadding="6" cellspacing="0" bordercolor="#000080" bgcolor="#FFFFCC">
+  <tr><td align="center">
+    <table border="0" cellpadding="0" cellspacing="0">
+      <tr>
+        <td>
+          <font face="Arial Black, Arial" size="7" color="#000080"><b>РУССКИЙ</b></font>
+        </td>
+        <td>
+          <font face="Arial Black, Arial" size="7" color="#800000"><b>&nbsp;ПОИСК&nbsp;</b></font>
+        </td>
+      </tr>
+    </table>
+    <br>
+    <font face="Times New Roman, Times" size="4" color="#006400">
+      <i>★ первая поисковая система Рунета ★</i>
+    </font>
+    <br>
+    <font face="Courier New" size="2" color="#800080">
+      работает с 15 октября 1995 года
+    </font>
+    <br><br>
+    <font face="Verdana" size="1" color="#666666">
+      <marquee behavior="alternate" scrollamount="1" width="400" onmouseover="this.stop();" onmouseout="this.start();">
+        *** индекс: 127 543 страницы | онлайн: 186 чел. | обновлено: 24.03.1998 ***
+      </marquee>
+    </font>
+  </td></tr>
+</table>
+
+<br>
+
+<!-- ========== ПОИСКОВАЯ ФОРМА ========== -->
+<table width="95%" border="3" cellpadding="8" cellspacing="0" bordercolor="#000000" bgcolor="#E8E8E8">
+  <tr><td align="center">
+    <font face="Arial, Helvetica" size="4" color="#000080"><b>🔍 НАЙТИ В СЕТИ</b></font>
+    <br><br>
+    <form name="searchForm" action="#" method="get" onsubmit="return doSearch();">
+      <input type="text" name="query" size="48" maxlength="200" 
+             value="введите запрос..." 
+             bgcolor="#FFFFFF"
+             onfocus="if(this.value=='введите запрос...')this.value='';"
+             onblur="if(this.value=='')this.value='введите запрос...';">
+      <br><br>
+      <select name="region" bgcolor="#FFFFFF">
+        <option value="ru" selected>🇷🇺 Россия</option>
+        <option value="ua">🇺🇦 Украина</option>
+        <option value="by">🇧🇾 Беларусь</option>
+        <option value="kz">🇰🇿 Казахстан</option>
+        <option value="world">🌍 Весь мир</option>
+      </select>
+      &nbsp;&nbsp;
+      <input type="submit" value="  Поиск  " bgcolor="#D4D4D4" onmouseover="statusMessage('Начать поиск')" onmouseout="statusMessage('')">
+      <input type="reset" value="  Сброс  " bgcolor="#D4D4D4" onmouseover="statusMessage('Очистить форму')" onmouseout="statusMessage('')">
+      <br><br>
+      <font face="Verdana" size="1">
+        <input type="checkbox" name="strict"> строгое соответствие
+        &nbsp;&nbsp;|&nbsp;&nbsp;
+        <input type="radio" name="lang" value="ru" checked> русские
+        <input type="radio" name="lang" value="all"> все языки
+        &nbsp;&nbsp;|&nbsp;&nbsp;
+        <input type="checkbox" name="images"> картинки
+        &nbsp;&nbsp;|&nbsp;&nbsp;
+        <input type="checkbox" name="baraholka" checked> в барахолке
+      </font>
+    </form>
+  </td></tr>
+</table>
+
+<br>
+
+<!-- ========== КАТАЛОГ ========== -->
+<table width="95%" border="2" cellpadding="3" cellspacing="0" bordercolor="#000080" bgcolor="#FFFFFF">
+  <tr bgcolor="#000080"><td colspan="6" align="center">
+    <font face="Arial" size="3" color="#FFFFCC"><b>КАТАЛОГ РЕСУРСОВ</b></font>
+  </td></tr>
+  <tr align="center" bgcolor="#E0E0E0">
+    <td width="16%" valign="middle"><img src="dot_blue.gif" width="8" height="8" alt="•" border="0"> <a href="#" onclick="alert('📁 Раздел: Искусство\\n\\nСайтов в разделе: 147\\n\\n(Демо-режим)'); return false;" onmouseover="statusMessage('Раздел: Искусство')">Искусство</a></td>
+    <td width="16%" valign="middle"><img src="dot_blue.gif" width="8" height="8" alt="•" border="0"> <a href="#" onclick="alert('📁 Раздел: Бизнес\\n\\nСайтов в разделе: 234\\n\\n(Демо-режим)'); return false;" onmouseover="statusMessage('Раздел: Бизнес')">Бизнес</a></td>
+    <td width="16%" valign="middle"><img src="dot_blue.gif" width="8" height="8" alt="•" border="0"> <a href="#" onclick="alert('📁 Раздел: Компьютеры\\n\\nСайтов в разделе: 892\\n\\n(Демо-режим)'); return false;" onmouseover="statusMessage('Раздел: Компьютеры')">Компьютеры</a></td>
+    <td width="16%" valign="middle"><img src="dot_blue.gif" width="8" height="8" alt="•" border="0"> <a href="#" onclick="alert('📁 Раздел: Наука\\n\\nСайтов в разделе: 156\\n\\n(Демо-режим)'); return false;" onmouseover="statusMessage('Раздел: Наука')">Наука</a></td>
+    <td width="16%" valign="middle"><img src="dot_blue.gif" width="8" height="8" alt="•" border="0"> <a href="#" onclick="alert('📁 Раздел: Спорт\\n\\nСайтов в разделе: 312\\n\\n(Демо-режим)'); return false;" onmouseover="statusMessage('Раздел: Спорт')">Спорт</a></td>
+    <td width="16%" valign="middle"><img src="dot_blue.gif" width="8" height="8" alt="•" border="0"> <a href="#" onclick="alert('📁 Раздел: Новости\\n\\nСайтов в разделе: 89\\n\\n(Демо-режим)'); return false;" onmouseover="statusMessage('Раздел: Новости')">Новости</a></td>
+  </tr>
+  <tr align="center" bgcolor="#F0F0F0">
+    <td><a href="#" onclick="alert('🎵 Музыка (MIDI/MP3)\\n\\nСайтов: 267\\n\\n(Демо-режим)'); return false;" onmouseover="statusMessage('Музыка')">🎵 Музыка</a></td>
+    <td><a href="#" onclick="alert('🎮 Игры (Doom/Quake)\\n\\nСайтов: 445\\n\\n(Демо-режим)'); return false;" onmouseover="statusMessage('Игры')">🎮 Игры</a> <font size="1" color="red"><b>NEW</b></font></td>
+    <td><a href="#" onclick="alert('🌐 Интернет (FIDO/WWW)\\n\\nСайтов: 523\\n\\n(Демо-режим)'); return false;" onmouseover="statusMessage('Интернет')">🌐 Интернет</a></td>
+    <td><a href="#" onclick="alert('⚕️ Медицина\\n\\nСайтов: 178\\n\\n(Демо-режим)'); return false;" onmouseover="statusMessage('Медицина')">⚕️ Медицина</a></td>
+    <td><a href="#" onclick="alert('⚽ Футбол (ЧМ-98)\\n\\nСайтов: 134\\n\\n(Демо-режим)'); return false;" onmouseover="statusMessage('Футбол')">⚽ Футбол</a></td>
+    <td><a href="#" onclick="alert('🌤️ Погода\\n\\nСайтов: 23\\n\\n(Демо-режим)'); return false;" onmouseover="statusMessage('Погода')">🌤️ Погода</a></td>
+  </tr>
+  <tr align="center" bgcolor="#E0E0E0">
+    <td><a href="#" onclick="alert('📷 Фото (GIF/JPG)\\n\\nСайтов: 189\\n\\n(Демо-режим)'); return false;" onmouseover="statusMessage('Фото')">📷 Фото</a></td>
+    <td><a href="#" onclick="alert('💼 Работа (вакансии)\\n\\nСайтов: 267\\n\\n(Демо-режим)'); return false;" onmouseover="statusMessage('Работа')">💼 Работа</a></td>
+    <td><a href="#" onclick="alert('💾 Софт (Win95/NT)\\n\\nСайтов: 678\\n\\n(Демо-режим)'); return false;" onmouseover="statusMessage('Софт')">💾 Софт</a> <font size="1" color="red"><b>HOT</b></font></td>
+    <td><a href="#" onclick="alert('📚 История\\n\\nСайтов: 145\\n\\n(Демо-режим)'); return false;" onmouseover="statusMessage('История')">📚 История</a></td>
+    <td><a href="#" onclick="alert('🏒 Хоккей (НХЛ)\\n\\nСайтов: 98\\n\\n(Демо-режим)'); return false;" onmouseover="statusMessage('Хоккей')">🏒 Хоккей</a></td>
+    <td><a href="#" onclick="alert('🎬 Кино (DivX)\\n\\nСайтов: 234\\n\\n(Демо-режим)'); return false;" onmouseover="statusMessage('Кино')">🎬 Кино</a></td>
+  </tr>
+  <tr align="center" bgcolor="#F0F0F0">
+    <td><a href="#" onclick="alert('🚗 Авто (ВАЗ/ГАЗ)\\n\\nСайтов: 156\\n\\n(Демо-режим)'); return false;" onmouseover="statusMessage('Авто')">🚗 Авто</a></td>
+    <td><a href="#" onclick="alert('🏠 Дом (стройка)\\n\\nСайтов: 123\\n\\n(Демо-режим)'); return false;" onmouseover="statusMessage('Дом')">🏠 Дом</a></td>
+    <td><a href="#" onclick="alert('🍽️ Еда (рецепты)\\n\\nСайтов: 289\\n\\n(Демо-режим)'); return false;" onmouseover="statusMessage('Еда')">🍽️ Еда</a></td>
+    <td><a href="#" onclick="alert('🐱 Животные\\n\\nСайтов: 167\\n\\n(Демо-режим)'); return false;" onmouseover="statusMessage('Животные')">🐱 Животные</a></td>
+    <td><a href="#" onclick="alert('💕 Знакомства\\n\\nСайтов: 78\\n\\n(Демо-режим)'); return false;" onmouseover="statusMessage('Знакомства')">💕 Знакомства</a> <font size="1" color="red"><b>!!!</b></font></td>
+    <td><a href="#" onclick="alert('👗 Мода\\n\\nСайтов: 134\\n\\n(Демо-режим)'); return false;" onmouseover="statusMessage('Мода')">👗 Мода</a></td>
+  </tr>
+</table>
+
+<br>
+
+<!-- ========== СЕРВИСЫ ========== -->
+<table width="95%" border="2" cellpadding="4" cellspacing="0" bordercolor="#008080" bgcolor="#E0FFFF">
+  <tr align="center">
+    <td width="20%">
+      <font face="Arial" size="2" color="#000080"><b>📧 ПОЧТА</b></font><br>
+      <a href="#" onclick="alert('📧 БЕСПЛАТНАЯ ПОЧТА\\n\\nОбъём ящика: 5 МБ\\nРегистрация: 2 минуты\\n\\n(Демо-режим)'); return false;" onmouseover="statusMessage('Бесплатная почта 5 МБ')">бесплатный ящик 5 МБ</a>
+    </td>
+    <td width="20%">
+      <font face="Arial" size="2" color="#000080"><b>💬 ЧАТ</b></font><br>
+      <a href="#" onclick="alert('💬 IRC-ЧАТ\\n\\nОнлайн: 186 человек\\nКаналы: #russian, #moscow, #games\\n\\n(Демо-режим)'); return false;" onmouseover="statusMessage('IRC-чат')">IRC-галерея (186 онл.)</a>
+    </td>
+    <td width="20%">
+      <font face="Arial" size="2" color="#000080"><b>📰 НОВОСТИ</b></font><br>
+      <a href="#" onclick="alert('📰 НОВОСТИ\\n\\nПоследние обновления:\\n• Windows 98 выйдет в июне\\n• Google зарегистрировал домен\\n• Акции Netscape растут\\n\\n(Демо-режим)'); return false;" onmouseover="statusMessage('Лента новостей')">лента@Ru — ежедневно</a>
+    </td>
+    <td width="20%">
+      <font face="Arial" size="2" color="#000080"><b>🛒 БАРАХОЛКА</b></font><br>
+      <a href="#baraholka" onclick="document.getElementById('baraholka').scrollIntoView(); return false;" onmouseover="statusMessage('Барахолка')">347 объявлений</a> <font size="1" color="red"><b>NEW!</b></font>
+    </td>
+    <td width="20%">
+      <font face="Arial" size="2" color="#000080"><b>🔎 ПОИСК</b></font><br>
+      <a href="#" onclick="document.searchForm.query.focus(); return false;" onmouseover="statusMessage('Поиск по сайту')">по 127 543 страниц</a>
+    </td>
+  </tr>
+</table>
+
+<br>
+
+<!-- ========== БАРАХОЛКА ========== -->
+<table width="95%" border="2" cellpadding="4" cellspacing="0" bordercolor="#000080" bgcolor="#F0F0F0" id="baraholka">
+  <tr><td bgcolor="#000080" align="center">
+    <font face="Arial" size="4" color="#FFFFFF"><b>🛒 БАРАХОЛКА — КУПИТЬ / ПРОДАТЬ / ОБМЕНЯТЬ</b></font>
+  </td></tr>
+  <tr><td>
+    <table width="100%" border="0" cellpadding="4" cellspacing="0">
+      <!-- Заголовки -->
+      <tr bgcolor="#D0D0D0">
+        <td width="5%" align="center"><font face="Verdana" size="1"><b>№</b></font></td>
+        <td width="55%"><font face="Verdana" size="1"><b>Объявление</b></font></td>
+        <td width="20%" align="center"><font face="Verdana" size="1"><b>Цена</b></font></td>
+        <td width="20%" align="center"><font face="Verdana" size="1"><b>Контакты</b></font></td>
+      </tr>
+      
+      <!-- Объявления -->
+      <tr bgcolor="#FFFFFF">
+        <td align="center"><font face="Courier New" size="1">001</font></td>
+        <td><font face="Verdana" size="1">
+          <b>ПРОДАМ:</b> Компьютер Pentium 133 MHz, 16 MB RAM, HDD 1.2 GB, SVGA 1 MB, CD-ROM 4x, 
+          клавиатура, мышь. Windows 95 OSR2. Состояние отличное.
+          <font color="#CC0000"><b> СРОЧНО!</b></font>
+        </font></td>
+        <td align="center"><font face="Courier New" size="1" color="#006400"><b>$650</b></font></td>
+        <td align="center"><font face="Verdana" size="1">
+          <a href="#" onclick="contactAd('alex_m@pochta.ru'); return false;" onmouseover="statusMessage('Написать продавцу')">✉️</a> 
+          <font size="1">(095) 123-45-67</font>
+        </font></td>
+      </tr>
+      
+      <tr bgcolor="#F5F5F5">
+        <td align="center"><font face="Courier New" size="1">002</font></td>
+        <td><font face="Verdana" size="1">
+          <b>ПРОДАМ:</b> Модем US Robotics 33.6 Кбит/с, оригинал, в коробке, драйверы. 
+          Работал 2 месяца.
+        </font></td>
+        <td align="center"><font face="Courier New" size="1" color="#006400"><b>$89</b></font></td>
+        <td align="center"><font face="Verdana" size="1">
+          <a href="#" onclick="contactAd('modem_sale@mail.ru'); return false;" onmouseover="statusMessage('Написать продавцу')">✉️</a> 
+          <font size="1">(095) 234-56-78</font>
+        </font></td>
+      </tr>
+      
+      <tr bgcolor="#FFFFFF">
+        <td align="center"><font face="Courier New" size="1">003</font></td>
+        <td><font face="Verdana" size="1">
+          <b>КУПЛЮ:</b> Игры для PC: Quake II, Diablo, Fallout, Civilization II. 
+          Лицензия или копии. Рассмотрю варианты.
+        </font></td>
+        <td align="center"><font face="Courier New" size="1" color="#800000"><b>договорная</b></font></td>
+        <td align="center"><font face="Verdana" size="1">
+          <a href="#" onclick="contactAd('gamer_99@chat.ru'); return false;" onmouseover="statusMessage('Написать покупателю')">✉️</a> 
+          <a href="#" onclick="openICQ('12345678'); return false;" onmouseover="statusMessage('ICQ: 12345678')"><font color="#0000EE">ICQ: 12345678</font></a>
+        </font></td>
+      </tr>
+      
+      <tr bgcolor="#F5F5F5">
+        <td align="center"><font face="Courier New" size="1">004</font></td>
+        <td><font face="Verdana" size="1">
+          <b>ОБМЕНЯЮ:</b> Видеокарта S3 Trio64 2 MB на Voodoo Graphics или подобную 3D. 
+          Возможен доплат.
+        </font></td>
+        <td align="center"><font face="Courier New" size="1" color="#800080"><b>обмен</b></font></td>
+        <td align="center"><font face="Verdana" size="1">
+          <a href="#" onclick="contactAd('3d_fan@narod.ru'); return false;" onmouseover="statusMessage('Написать для обмена')">✉️</a> 
+          <font size="1">(095) 345-67-89</font>
+        </font></td>
+      </tr>
+      
+      <tr bgcolor="#FFFFFF">
+        <td align="center"><font face="Courier New" size="1">005</font></td>
+        <td><font face="Verdana" size="1">
+          <b>ПРОДАМ:</b> Коллекция CD (50 шт.): музыка, софт, игры. Всё рабочее. 
+          Продам по отдельности или оптом.
+          <font color="#CC0000"><b> НОВОЕ!</b></font>
+        </font></td>
+        <td align="center"><font face="Courier New" size="1" color="#006400"><b>$5-15/шт</b></font></td>
+        <td align="center"><font face="Verdana" size="1">
+          <a href="#" onclick="contactAd('cd_collector@rambler.ru'); return false;" onmouseover="statusMessage('Написать продавцу')">✉️</a> 
+          <font size="1">(095) 456-78-90</font>
+        </font></td>
+      </tr>
+      
+      <tr bgcolor="#F5F5F5">
+        <td align="center"><font face="Courier New" size="1">006</font></td>
+        <td><font face="Verdana" size="1">
+          <b>ПРОДАМ:</b> Принтер Epson Stylus Color 440, картриджи новые (2 шт.), 
+          кабель в комплекте. Печать отличная.
+        </font></td>
+        <td align="center"><font face="Courier New" size="1" color="#006400"><b>$180</b></font></td>
+        <td align="center"><font face="Verdana" size="1">
+          <a href="#" onclick="contactAd('print_sale@mail.ru'); return false;" onmouseover="statusMessage('Написать продавцу')">✉️</a> 
+          <font size="1">(095) 567-89-01</font>
+        </font></td>
+      </tr>
+      
+      <tr bgcolor="#FFFFFF">
+        <td align="center"><font face="Courier New" size="1">007</font></td>
+        <td><font face="Verdana" size="1">
+          <b>КУПЛЮ:</b> Монитор 15" Samsung или LG, б/у в рабочем состоянии. 
+          Самовывоз.
+        </font></td>
+        <td align="center"><font face="Courier New" size="1" color="#800000"><b>до $200</b></font></td>
+        <td align="center"><font face="Verdana" size="1">
+          <a href="#" onclick="contactAd('monitor_buy@pochta.ru'); return false;" onmouseover="statusMessage('Написать покупателю')">✉️</a> 
+          <font size="1">(095) 678-90-12</font>
+        </font></td>
+      </tr>
+      
+      <tr bgcolor="#F5F5F5">
+        <td align="center"><font face="Courier New" size="1">008</font></td>
+        <td><font face="Verdana" size="1">
+          <b>ПРОДАМ:</b> Sound Blaster AWE32 + колонки 2x10W. Звук супер! 
+          Игры звучат как надо.
+        </font></td>
+        <td align="center"><font face="Courier New" size="1" color="#006400"><b>$75</b></font></td>
+        <td align="center"><font face="Verdana" size="1">
+          <a href="#" onclick="contactAd('sound_blaster@chat.ru'); return false;" onmouseover="statusMessage('Написать продавцу')">✉️</a> 
+          <a href="#" onclick="openICQ('87654321'); return false;" onmouseover="statusMessage('ICQ: 87654321')"><font color="#0000EE">ICQ: 87654321</font></a>
+        </font></td>
+      </tr>
+    </table>
+    <br>
+    <center>
+      <font face="Verdana" size="1">
+        <a href="#" onclick="gotoPage(1); return false;">[1]</a> 
+        <a href="#" onclick="gotoPage(2); return false;" onmouseover="statusMessage('Страница 2')">[2]</a> 
+        <a href="#" onclick="gotoPage(3); return false;" onmouseover="statusMessage('Страница 3')">[3]</a> 
+        <a href="#" onclick="gotoPage(4); return false;" onmouseover="statusMessage('Страница 4')">[4]</a> 
+        <a href="#" onclick="gotoPage(5); return false;" onmouseover="statusMessage('Страница 5')">[5]</a> 
+        ... 
+        <a href="#" onclick="gotoPage(22); return false;" onmouseover="statusMessage('Страница 22')">[22]</a> 
+        &nbsp;&nbsp;|&nbsp;&nbsp;
+        <a href="#" onclick="submitAd(); return false;" onmouseover="statusMessage('Подать объявление')"><b>➕ Подать объявление</b></a> 
+        &nbsp;&nbsp;|&nbsp;&nbsp;
+        <a href="#" onclick="alert('📜 ПРАВИЛА БАРАХОЛКИ\\n\\n1. Запрещены повторные объявления\\n2. Указывайте реальную цену\\n3. Встречайтесь в людных местах\\n4. Не переводите деньги заранее\\n5. Модерация: 24 часа'); return false;" onmouseover="statusMessage('Правила барахолки')">📜 Правила</a>
+      </font>
+      <br><br>
+      <font face="Verdana" size="1" color="#000080">
+        ⚠️ Внимание! Администрация не несёт ответственности за сделки. 
+        Встречайтесь в людных местах. Не переводите деньги заранее!
+      </font>
+    </center>
+  </td></tr>
+</table>
+
+<br>
+
+<!-- ========== ТРИ КОЛОНКИ ========== -->
+<table width="95%" border="1" cellpadding="4" cellspacing="1" bordercolor="#808080">
+  <tr valign="top">
+    
+    <!-- ЛЕВАЯ -->
+    <td width="33%" bgcolor="#FFFFE0">
+      <font face="Arial" size="3" color="#000080"><b>🔥 ПОПУЛЯРНОЕ</b></font>
+      <br><br>
+      <font face="Verdana" size="2">
+        <img src="arrow.gif" width="7" height="7" alt="→" border="0"> <a href="#" onclick="alert('🕸️ Yahoo!\\n\\nКрупнейший каталог интернета\\nwww.yahoo.com\\n\\n(Демо-режим)'); return false;" onmouseover="statusMessage('Yahoo! каталог')">Yahoo! (каталог)</a><br>
+        <img src="arrow.gif" width="7" height="7" alt="→" border="0"> <a href="#" onclick="alert('📎 AltaVista\\n\\nПоисковая система\\nwww.altavista.com\\n\\n(Демо-режим)'); return false;" onmouseover="statusMessage('AltaVista поиск')">AltaVista (поиск)</a><br>
+        <img src="arrow.gif" width="7" height="7" alt="→" border="0"> <a href="#" onclick="alert('🏠 GeoCities\\n\\nБесплатный хостинг\\nwww.geocities.com\\n\\n(Демо-режим)'); return false;" onmouseover="statusMessage('GeoCities хостинг')">GeoCities</a> <font size="1" color="red">[бесплатный хостинг]</font><br>
+        <img src="arrow.gif" width="7" height="7" alt="→" border="0"> <a href="#" onclick="alert('📧 Hotmail\\n\\nБесплатная почта\\nwww.hotmail.com\\n\\n(Демо-режим)'); return false;" onmouseover="statusMessage('Hotmail почта')">Hotmail (почта)</a><br>
+        <img src="arrow.gif" width="7" height="7" alt="→" border="0"> <a href="#" onclick="alert('💾 Download.com\\n\\nСофт и драйверы\\nwww.download.com\\n\\n(Демо-режим)'); return false;" onmouseover="statusMessage('Download.com')">Download.com</a><br>
+        <img src="arrow.gif" width="7" height="7" alt="→" border="0"> <a href="#" onclick="alert('🎮 Quake World\\n\\nОнлайн серверы\\nwww.quake.com\\n\\n(Демо-режим)'); return false;" onmouseover="statusMessage('Quake World')">Quake World</a> <font size="1" color="red">[ONLINE]</font><br>
+        <img src="arrow.gif" width="7" height="7" alt="→" border="0"> <a href="#" onclick="alert('🎵 MP3.com\\n\\nМузыка в MP3\\nwww.mp3.com\\n\\n(Демо-режим)'); return false;" onmouseover="statusMessage('MP3.com')">MP3.com</a><br>
+        <img src="arrow.gif" width="7" height="7" alt="→" border="0"> <a href="#" onclick="alert('📚 Lib.ru — Библиотека Максима Мошкова\\n\\nwww.lib.ru\\n\\n(Демо-режим)'); return false;" onmouseover="statusMessage('Библиотека Мошкова')">Lib.ru — Мошков</a><br>
+        <img src="arrow.gif" width="7" height="7" alt="→" border="0"> <a href="#" onclick="alert('🔍 Rambler.ru\\n\\nПоиск и портал\\nwww.rambler.ru\\n\\n(Демо-режим)'); return false;" onmouseover="statusMessage('Rambler.ru')">Rambler.ru</a><br>
+        <img src="arrow.gif" width="7" height="7" alt="→" border="0"> <a href="#" onclick="alert('💕 Chat.ru\\n\\nЗнакомства в интернете\\nwww.chat.ru\\n\\n(Демо-режим)'); return false;" onmouseover="statusMessage('Chat.ru')">Chat.ru (знакомства)</a>
+      </font>
+      <br>
+      <center>
+        <table border="1" bordercolor="#000000" bgcolor="#000000" cellpadding="3">
+          <tr><td>
+            <font face="Courier New" size="1" color="#00FF00">
+              РЕЙТИНГ:<br>
+              24.03.1998 16:42 MSK
+            </font>
+          </td></tr>
+        </table>
+      </center>
+    </td>
+    
+    <!-- ЦЕНТР -->
+    <td width="34%" bgcolor="#E8FFE8">
+      <font face="Arial" size="3" color="#006400"><b>🌟 НОВИНКИ</b></font>
+      <br><br>
+      <font face="Verdana" size="2">
+        <img src="star.gif" width="10" height="10" alt="★" border="0"> <a href="#" onclick="alert('🖥️ Музей компьютерной истории\\n\\nИстория ПК от начала до наших дней\\n\\n(Демо-режим)'); return false;" onmouseover="statusMessage('Музей компьютерной истории')">Музей компьютерной истории</a><br>
+        <img src="dot_green.gif" width="6" height="6" alt="•" border="0"> <a href="#" onclick="alert('🥧 Рецепты бабушки Агафьи\\n\\nНародная кухня\\n\\n(Демо-режим)'); return false;" onmouseover="statusMessage('Рецепты')">Рецепты бабушки Агафьи</a><br>
+        <img src="star.gif" width="10" height="10" alt="★" border="0"> <a href="#" onclick="alert('🎵 MP3: 100 хитов Рунета\\n\\nСкачать архив (15 МБ)\\n\\n(Демо-режим)'); return false;" onmouseover="statusMessage('MP3 хиты')">MP3: 100 хитов Рунета</a> <font size="1" color="red">[скачать]</font><br>
+        <img src="dot_green.gif" width="6" height="6" alt="•" border="0"> <a href="#" onclick="alert('📚 Библиотека Максима Мошкова\\n\\nwww.lib.ru\\n\\n(Демо-режим)'); return false;" onmouseover="statusMessage('Библиотека')">Библиотека Максима Мошкова</a><br>
+        <img src="dot_green.gif" width="6" height="6" alt="•" border="0"> <a href="#" onclick="alert('😂 Анекдоты из FIDO\\n\\nКонференция ru.anecdote\\n\\n(Демо-режим)'); return false;" onmouseover="statusMessage('Анекдоты')">Анекдоты из FIDO</a><br>
+        <img src="star.gif" width="10" height="10" alt="★" border="0"> <a href="#baraholka" onclick="document.getElementById('baraholka').scrollIntoView(); return false;" onmouseover="statusMessage('Барахолка')">🛒 Барахолка — 347 объявлений!</a> <font size="1" color="red">[NEW]</font><br>
+        <img src="dot_green.gif" width="6" height="6" alt="•" border="0"> <a href="#" onclick="alert('🔧 Драйверы под старое железо\\n\\nБаза драйверов для Win95/98\\n\\n(Демо-режим)'); return false;" onmouseover="statusMessage('Драйверы')">Драйверы под старое железо</a><br>
+        <img src="dot_green.gif" width="6" height="6" alt="•" border="0"> <a href="#" onclick="alert('📅 Православный календарь\\n\\nПраздники и посты\\n\\n(Демо-режим)'); return false;" onmouseover="statusMessage('Календарь')">Православный календарь</a><br>
+        <img src="dot_green.gif" width="6" height="6" alt="•" border="0"> <a href="#" onclick="alert('💵 Курс доллара — ежедневно\\n\\nОбновляется по данным ЦБ РФ\\n\\n(Демо-режим)'); return false;" onmouseover="statusMessage('Курс валют')">Курс доллара — ежедневно</a>
+      </font>
+      <br>
+      <font face="Verdana" size="1" color="#006400">
+        +52 сайта за неделю | всего: 3 894 ресурса
+      </font>
+    </td>
+    
+    <!-- ПРАВАЯ -->
+    <td width="33%" bgcolor="#FFE8E8">
+      <font face="Arial" size="3" color="#8B0000"><b>📈 КУРСЫ ЦБ РФ</b></font>
+      <br><br>
+      <table border="1" bordercolor="#800000" cellpadding="3" bgcolor="#FFFFFF">
+        <tr><td><font face="Courier New" size="2">
+          1 USD = <b>6.12</b> руб.<br>
+          1 DEM = <b>3.47</b> руб.<br>
+          1 ECU = <b>6.78</b> руб.<br>
+          1 GBP = <b>9.85</b> руб.
+        </font></td></tr>
+      </table>
+      <font face="Verdana" size="1" color="#800000">на 24.03.1998</font>
+      <br><br>
+      <font face="Arial" size="2" color="#8B0000"><b>☀️ МОСКВА</b></font><br>
+      <font face="Verdana" size="2">+7°C, ясно, ветер 3 м/с</font>
+      <br><br>
+      <font face="Arial" size="2" color="#8B0000"><b>🔮 ГОРОСКОП</b></font><br>
+      <font face="Verdana" size="1">
+        ♏ Скорпионам: удачный день для покупки техники.<br>
+        ♈ Овнам: не качайте пиратский софт!<br>
+        ♊ Близнецам: проверьте почту — письмо от друга.
+      </font>
+    </td>
+    
+  </tr>
+</table>
+
+<br>
+
+<!-- ========== БЕГУЩАЯ СТРОКА ========== -->
+<marquee behavior="scroll" direction="left" scrollamount="2" bgcolor="#000080" width="95%" onmouseover="this.stop();" onmouseout="this.start();">
+  <font face="Verdana" size="1" color="#FFFFCC">
+    🚀 Google регистрирует домен (15.09.1997)! | 
+    📈 Акции Netscape +200% после IPO | 
+    🖥️ Windows 98 выйдет в июне 1998 | 
+    🔍 AltaVista: 25 млн страниц в индексе | 
+    📧 Hotmail куплен Microsoft за $400 млн | 
+    🕸️ Рунет: 5 200 сайтов | 
+    🐧 Linux 2.0.33 стабилен | 
+    🎮 Quake II — игра 1997 года | 
+    💾 Модемы 56k — новый стандарт | 
+    📅 Yahoo! — #1 в мире по посещаемости
+  </font>
+</marquee>
+
+<br>
+
+<!-- ========== РЕКЛАМА ========== -->
+<table width="95%" border="2" cellpadding="4" cellspacing="0" bordercolor="#800080" bgcolor="#F0E0FF">
+  <tr>
+    <td width="25%" align="center" bgcolor="#FFFFCC">
+      <font face="Courier New" size="2" color="#800000"><b>!!! РАСПРОДАЖА !!!</b></font><br>
+      <a href="#" onclick="alert('💿 CD-ROM 8x — $49\\n💿 CD-ROM 24x — $89\\n\\nДоставка почтой России\\nСрок: 2-4 недели\\n\\n(Демо-режим)'); return false;" onmouseover="statusMessage('CD-ROM распродажа')">CD-ROM 8x — $49</a><br>
+      <a href="#" onclick="alert('💿 CD-ROM 24x — $89\\n\\nДоставка почтой России\\n\\n(Демо-режим)'); return false;" onmouseover="statusMessage('CD-ROM 24x')">CD-ROM 24x — $89</a>
+      <br><font size="1">доставка почтой России</font>
+    </td>
+    <td width="25%" align="center" bgcolor="#E0E0FF">
+      <font face="Courier New" size="2" color="#000080"><b>БРАУЗЕРЫ</b></font><br>
+      <a href="#" onclick="alert('🌐 Netscape Navigator 4.04\\n\\nРазмер: 4.5 МБ\\nВремя загрузки: ~20 мин @ 28.8k\\n\\n(Демо-режим)'); return false;" onmouseover="statusMessage('Netscape 4.04')">Netscape 4.04</a> | 
+      <a href="#" onclick="alert('🌐 Internet Explorer 4.01\\n\\nРазмер: 12 МБ\\nВходит в Windows 98\\n\\n(Демо-режим)'); return false;" onmouseover="statusMessage('IE 4.01')">IE 4.01</a>
+      <br><font size="1">бесплатно для дома</font>
+    </td>
+    <td width="25%" align="center" bgcolor="#E0FFE0">
+      <font face="Courier New" size="2" color="#006400"><b>МОДЕМЫ 56k</b></font><br>
+      <a href="#" onclick="alert('📞 Zyxel Elite 56k — $99\\n\\nДрайверы в комплекте\\nГарантия 1 год\\n\\n(Демо-режим)'); return false;" onmouseover="statusMessage('Zyxel Elite')">Zyxel Elite — $99</a><br>
+      <a href="#" onclick="alert('📞 US Robotics 56k — $129\\n\\nЛучший модем 1997 года\\n\\n(Демо-режим)'); return false;" onmouseover="statusMessage('US Robotics')">US Robotics — $129</a>
+      <br><font size="1">драйверы в комплекте</font>
+    </td>
+    <td width="25%" align="center" bgcolor="#FFE0E0">
+      <font face="Courier New" size="2" color="#800000"><b>ХОСТИНГ</b></font><br>
+      <a href="#" onclick="alert('🏠 GeoCities — бесплатно\\n\\n5 МБ места\\nКонструктор сайтов\\n\\n(Демо-режим)'); return false;" onmouseover="statusMessage('GeoCities')">GeoCities — бесплатно</a><br>
+      <a href="#" onclick="alert('🏠 Народ.ру — 5 МБ\\n\\nБесплатный хостинг от Яндекса\\n\\n(Демо-режим)'); return false;" onmouseover="statusMessage('Народ.ру')">Народ.ру — 5 МБ</a>
+      <br><font size="1">создай свой сайт!</font>
+    </td>
+  </tr>
+</table>
+
+<br>
+
+<!-- ========== СЧЁТЧИК И ПАРТНЁРЫ ========== -->
+<table width="95%" border="0" cellpadding="6" cellspacing="0">
+  <tr>
+    <td width="40%" align="left">
+      <table border="2" bordercolor="#00FF00" bgcolor="#000000" cellpadding="4" onclick="showCounter()" style="cursor:pointer;">
+        <tr><td>
+          <font face="Courier New" size="2" color="#00FF00">
+            ВЫ ПОСЕТИТЕЛЬ №<br>
+            <b id="visitCounter">00127893</b>
+          </font>
+        </td></tr>
+      </table>
+      <br>
+      <font face="Verdana" size="1">
+        <a href="#" onclick="alert('📊 Rambler Top100\\n\\nРейтинг сайтов Рунета\\n\\n(Демо-режим)'); return false;" onmouseover="statusMessage('Rambler Top100')"><img src="top100.gif" alt="Top100" border="0" width="88" height="31"></a>
+        <a href="#" onclick="alert('📊 SpyLOG\\n\\nСтатистика посещаемости\\n\\n(Демо-режим)'); return false;" onmouseover="statusMessage('SpyLOG')"><img src="spylog.gif" alt="SpyLOG" border="0" width="88" height="31"></a>
+        <a href="#" onclick="alert('📊 Mail.ru Рейтинг\\n\\nПопулярность сайтов\\n\\n(Демо-режим)'); return false;" onmouseover="statusMessage('Mail.ru Рейтинг')"><img src="mailru.gif" alt="Mail.ru" border="0" width="88" height="31"></a>
+      </font>
+    </td>
+    <td width="30%" align="center">
+      <font face="Arial" size="2"><b>НАС РЕКОМЕНДУЮТ</b></font><br>
+      <font face="Verdana" size="1">
+        <a href="#" onclick="alert('@Rus — каталог сайтов\\n\\n(Демо-режим)'); return false;" onmouseover="statusMessage('@Rus')">@Rus</a> | 
+        <a href="#" onclick="alert('List.ru — листинг ресурсов\\n\\n(Демо-режим)'); return false;" onmouseover="statusMessage('List.ru')">List.ru</a> | 
+        <a href="#" onclick="alert('Weblist — каталог\\n\\n(Демо-режим)'); return false;" onmouseover="statusMessage('Weblist')">Weblist</a> | 
+        <a href="#" onclick="alert('FIDO — эхо-почта\\n\\n(Демо-режим)'); return false;" onmouseover="statusMessage('FIDO')">FIDO</a>
+      </font>
+      <br><br>
+      <font size="1" color="#000080"><i>"Лучший каталог Рунета!" — Компьютерра, №12/1997</i></font>
+    </td>
+    <td width="30%" align="right">
+      <font face="Verdana" size="1">
+        <a href="#" onclick="addSite(); return false;" onmouseover="statusMessage('Добавить сайт в каталог')">➕ Добавить сайт</a><br>
+        <a href="#" onclick="showHelp(); return false;" onmouseover="statusMessage('Помощь и FAQ')">❓ Помощь / FAQ</a><br>
+        <a href="#" onclick="showMap(); return false;" onmouseover="statusMessage('Карта портала')">🗺️ Карта портала</a><br>
+        <a href="#" onclick="contactWebmaster(); return false;" onmouseover="statusMessage('Email вебмастера')">✉️ webmaster@ruspoisk.ru</a><br>
+        <br>
+        <b><font color="#800000">© 1996-1998</font> Русский Поиск</b>
+      </font>
+    </td>
+  </tr>
+</table>
+
+<br>
+
+<!-- ========== ГОСТЕВАЯ КНИГА ========== -->
+<table width="95%" border="2" cellpadding="6" cellspacing="0" bordercolor="#0000FF" bgcolor="#E8E8FF">
+  <tr><td align="center">
+    <font face="Arial" size="3"><b>📝 ГОСТЕВАЯ КНИГА</b></font><br>
+    <font face="Verdana" size="2">
+      <a href="#" onclick="writeGuestbook(); return false;" onmouseover="statusMessage('Написать в гостевую')">✍️ Написать</a> | 
+      <a href="#" onclick="alert('📚 АРХИВ ГОСТЕВОЙ КНИГИ\\n\\nВсего записей: 1 893\\nСтраниц: 95\\n\\n(Демо-режим)'); return false;" onmouseover="statusMessage('Архив гостевой')">📚 Архив</a> | 
+      <a href="#" onclick="alert('📜 ПРАВИЛА ГОСТЕВОЙ\\n\\n1. Без мата\\n2. Без рекламы\\n3. По теме сайта\\n4. Модерация: 2-4 часа\\n\\n(Демо-режим)'); return false;" onmouseover="statusMessage('Правила гостевой')">📜 Правила</a>
+    </font>
+    <br><br>
+    <table width="90%" border="1" bordercolor="#808080" cellpadding="4" bgcolor="#FFFFFF">
+      <tr><td>
+        <font face="Courier New" size="1">
+          <b>Вася (vasya@pochta.ru) — 24.03.1998 14:22</b><br>
+          Где скачать драйвер для Sound Blaster 16 под Win95? 
+          Заранее спасибо! :-)
+          <br><br>
+          <b>Админ — 24.03.1998 14:35</b><br>
+          Вася, смотри в разделе "Компьютеры → Драйверы". 
+          Если не найдёшь — пиши в чат, поможем! 🤝
+          <br><br>
+          <b>Петрович (petrov@fido.ru) — 24.03.1998 15:10</b><br>
+          Народ, кто играл в Quake II по сети? Ищем сервер для игры 
+          вечером в 20:00. Пинг не больше 100!
+          <br><br>
+          <b>Ольга (olga_k@chat.ru) — 24.03.1998 16:05</b><br>
+          Спасибо за Барахолку! Продала свой старый монитор за 2 часа! 
+          Сайт супер! 💐
+        </font>
+      </td></tr>
+    </table>
+    <br>
+    <font face="Verdana" size="1">
+      Всего записей: <b>1 893</b> | Страница: <b>1</b> из <b>95</b>
+    </font>
+  </td></tr>
+</table>
+
+<br>
+
+<!-- ========== СЛУЧАЙНЫЙ САЙТ + СОВЕТ ========== -->
+<table width="95%" border="1" cellpadding="4" cellspacing="0" bordercolor="#FF8000">
+  <tr>
+    <td width="50%" bgcolor="#FFF0D0" align="center">
+      <font face="Arial" size="2"><b>🎲 СЛУЧАЙНЫЙ САЙТ</b></font><br>
+      <a href="#" onclick="randomSite(); return false;" onmouseover="statusMessage('Перейти на случайный сайт')"><b>Музей советских телефонов</b></a>
+      <br><br>
+      <input type="button" value="🔄 Ещё один!" bgcolor="#FFCC99" onclick="randomSite();" onmouseover="statusMessage('Следующий случайный сайт')">
+    </td>
+    <td width="50%" bgcolor="#D0FFD0" align="center">
+      <font face="Arial" size="2"><b>💡 СОВЕТ ДНЯ</b></font><br>
+      <font face="Verdana" size="1">
+        Для ускорения загрузки отключите картинки:<br>
+        <i>Options → General → Auto Load Images → OFF</i>
+      </font>
+      <br><font size="1">Экономия: до 70% трафика</font>
+    </td>
+  </tr>
+</table>
+
+<br>
+
+<!-- ========== БАДЖИ БРАУЗЕРОВ ========== -->
+<table width="95%" border="2" bordercolor="#808080" bgcolor="#000000" cellpadding="5">
+  <tr><td align="center">
+    <font face="Verdana" size="1" color="#FFFFCC">
+      <nobr>
+        <a href="#" onclick="alert('🌐 Netscape Navigator\\n\\nРекомендуется для этого сайта!\\nВерсия: 4.04\\n\\n(Демо-режим)'); return false;" onmouseover="statusMessage('Netscape Now!')"><font color="#FFCC66">[ Netscape Now! ]</font></a> &nbsp;|&nbsp;
+        <a href="#" onclick="alert('🌐 Internet Explorer 4.0\\n\\nЛучшая поддержка JavaScript\\nОт Microsoft\\n\\n(Демо-режим)'); return false;" onmouseover="statusMessage('Best with IE 4.0')"><font color="#FFCC66">[ Best with IE 4.0 ]</font></a> &nbsp;|&nbsp;
+        <a href="#" onclick="alert('🖥️ Разрешение 640×480\\n\\nОптимально для этого сайта\\n\\n(Демо-режим)'); return false;" onmouseover="statusMessage('640×480')"><font color="#FFCC66">640×480</font></a> &nbsp;|&nbsp;
+        <a href="#" onclick="alert('🖥️ Разрешение 800×600\\n\\nРекомендуется\\n\\n(Демо-режим)'); return false;" onmouseover="statusMessage('800×600')"><font color="#FFCC66">800×600</font></a> &nbsp;|&nbsp;
+        <a href="#" onclick="alert('🎨 256 цветов\\n\\nМинимальные требования\\nHigh Color рекомендуется\\n\\n(Демо-режим)'); return false;" onmouseover="statusMessage('256 цветов')"><font color="#FFCC66">256 цветов</font></a> &nbsp;|&nbsp;
+        <a href="#" onclick="alert('💬 ICQ Inside\\n\\nМессенджер №1\\nUIN: 12345678\\n\\n(Демо-режим)'); return false;" onmouseover="statusMessage('ICQ Inside')"><font color="#FFCC66">[ ICQ Inside ]</font></a>
+      </nobr>
+    </font>
+  </td></tr>
+</table>
+
+<br>
+
+<!-- ========== ПОДВАЛ ========== -->
+<font face="Times New Roman" size="1" color="#404040">
+  <hr width="95%" noshade>
+  * Сайт оптимизирован для модемов 28.8 кбит/с и браузеров Netscape 3.0+ / IE 4.0+<br>
+  * Лучшее качество при 256 цветах. Если видите «рябь» — переключите видео в High Color.<br>
+  * Использование &lt;marquee&gt; и &lt;table&gt; — не баг, а стиль эпохи ;-)<br>
+  * MIDI-музыка: если ваш браузер поддерживает &lt;bgsound&gt;, сейчас играет "Axel F"<br>
+  * Все объявления в Барахолке публикуются бесплатно. Модерация: 24 часа.<br>
+  * Все права защищены. Копирование приветствуется с указанием источника.<br>
+  <br>
+  <center>
+    <font color="#800000"><b>LAST UPDATED:</b></font> 
+    <script language="JavaScript">
+    <!--
+      if (document.lastModified) document.write(document.lastModified);
+      else document.write("24-Mar-1998");
+    //-->
+    </script>
+    <noscript>24-Mar-1998</noscript>
+  </center>
+  <br>
+  <center>
+    <font color="#666666">
+      [ <a href="#" onclick="alert('📌 О ПОРТАЛЕ\\n\\nРусский Поиск — первый портал Рунета!\\nРаботаем с 1995 года.\\n\\nМиссия: сделать интернет доступным для всех!\\n\\n(Демо-режим)'); return false;" onmouseover="statusMessage('О портале')">О портале</a> | 
+      <a href="#" onclick="alert('📢 РЕКЛАМА\\n\\nРазместите свой баннер у нас!\\n\\nФорматы:\\n• 468×60 — $50/месяц\\n• 88×31 — $20/месяц\\n\\n(Демо-режим)'); return false;" onmouseover="statusMessage('Реклама')">Реклама</a> | 
+      <a href="#" onclick="contactWebmaster(); return false;" onmouseover="statusMessage('Контакты')">Контакты</a> | 
+      <a href="#" onclick="alert('🕸️ WEBRING\\n\\nРусский Поиск WebRing\\n\\n[ Предыдущий | Случайный | Следующий ]\\n\\n(Демо-режим)'); return false;" onmouseover="statusMessage('WebRing')">WebRing</a> | 
+      <a href="#" onclick="alert('📊 СТАТИСТИКА\\n\\nПосетителей сегодня: 1 247\\nПосетителей за месяц: 34 892\\nВсего с 1995: 1 234 567\\n\\n(Демо-режим)'); return false;" onmouseover="statusMessage('Статистика')">Статистика</a> ]
+    </font>
+  </center>
+</font>
+
+<br><br>
+
+<!-- ========== СКРЫТЫЙ ТЕКСТ ДЛЯ ПОИСКОВИКОВ ========== -->
+<font size="1" color="#C0C0C0">
+поиск интернет рунет каталог сайты почта чат новости 1995 1996 1997 1998 веб дизайн 
+портал скачать бесплатно драйверы софт игры музыка фильмы россия украина беларусь 
+казахстан модем 28800 56к браузер netscape explorer yahoo geocities altavista hotmail
+барахолка объявления купить продать обменять компьютеры pentium windows 95 98 игры 
+quake diablo fallout цивилизация icq irc fido fidonet email
+</font>
+
+</center>
+
+<!-- ========== ЗВУК ПРИ ЗАГРУЗКЕ (опционально) ========== -->
+<!--
+<bgsound src="welcome.mid" loop="1">
+-->
+
+</body>
+</html>
